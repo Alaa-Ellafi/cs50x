@@ -1,0 +1,7 @@
+Question 1
+Characterizing the Audio Aura:
+To characterize the audio aura of a listener from their top 100 songs in 2018, we calculate the average energy, valence, and danceability of these songs. For instance, if the average energy is high, the listener's aura might be lively and intense. High valence suggests a happy and positive mood, while high danceability indicates that the songs are rhythmic and suitable for dancing.
+Limitations:
+Calculating the audio aura based on simple averages might not accurately reflect the listener's true preferences. This method doesn't account for the diversity of moods across different songs or the temporal changes in listening habits throughout the year.
+Question 2
+Listener Feedback: Integrating feedback or ratings from the listener can help refine the aura calculation to better match their perceived moods

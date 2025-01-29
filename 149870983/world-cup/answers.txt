@@ -1,0 +1,17 @@
+Times:
+
+10 simulations: 0m0.026s
+100 simulations: 0m0.025s
+1000 simulations: 0m0.032s
+10000 simulations: 0m0.089s
+100000 simulations: 0m0.652s
+1000000 simulations: 0m6.716s
+
+Questions:
+
+Which predictions, if any, proved incorrect as you increased the number of simulations?:
+As the number of simulations icreased the time increased more rapidly comparing to the small samples which proves that the running time does not follow a linear variation model
+
+Suppose you're charged a fee for each second of compute time your program uses.
+After how many simulations would you call the predictions "good enough"?:
+ A good balance would likely be found around 10000 simulations. This count provides a reasonable level of accuracy while keeping the compute time relatively low (approximately 0m0.089s). Beyond this point, the increase in accuracy is marginal compared to the significant increase in compute time, making it less cost-effective

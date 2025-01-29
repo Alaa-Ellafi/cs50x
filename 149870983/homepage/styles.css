@@ -1,0 +1,20 @@
+h1 {
+    color: pink;
+    margin-bottom: 20px;
+}
+
+#first_para {
+    background-color: Lavender;
+    margin-bottom: 20px;
+}
+
+img {
+    margin-bottom: 20px;
+    float: right;
+}
+.inline {
+    display: inline;
+}
+#hea{
+
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded',function(){
+                let correct= document.querySelector('.correct');
+                correct.addEventListener('click',function(){
+                    correct.style.backgroundColor = "green";
+                    document.querySelector('#answer1').innerHTML ="Correct!";
+                });
+                let incorrect=document.querySelectorAll(".incorrect");
+                for(let i = 0; i < incorrect.length; i++){
+                    incorrect[i].addEventListener('click',function(){
+                        incorrect[i].style.backgroundColor = "red";
+                        document.querySelector('#answer1').innerHTML = "Incorrect";
+                    });
+                }
+                document.querySelector("#submit").addEventListener('click',function(){
+                    let answer = document.querySelector("#answer");
+                    if(answer.value.toLowerCase() == "india"){
+                        answer.style.backgroundColor= "green";
+                        document.querySelector('#answer2').innerHTML = "Correct!";
+                    }
+                    else{
+                        answer.style.backgroundColor= "red";
+                        document.querySelector('#answer2').innerHTML = "Incorrect";
+                    }
+                })
+            })
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>How many countries are there in the world?</h3>
+                <button type="text" class="incorrect">
+                    200
+                </button>
+                <button type="text" class="incorrect">
+                    187
+                </button>
+                <button type ="text" class="correct">
+                    195
+                </button>
+                <button type="text" class="incorrect">
+                    190
+                </button>
+                <p id="answer1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                 <h3>What's the top1 populated country in the world?</h3>
+                 <form>
+                    <input autocomplete="off" autofocus id ="answer" placeholder="Answer" type="text">
+                    <button id="submit">Submit</button>
+                 </form>
+                 <p id="answer2"> </p>
+            </div>
+        </div>
+    </body>
+</html>

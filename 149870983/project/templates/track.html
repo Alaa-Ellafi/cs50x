@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        rel="stylesheet">
+    <script crossorigin="anonymous"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
+    <link href="/static/styles.css" rel="stylesheet">
+
+    <title>EcoPrint - Charts</title>
+    <style>
+        /* Styles specific to charts page */
+        .charts-page {
+            background-image: url("/static/pexels-catiamatos-1072179.jpg");
+            color: #fff;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .chart-container {
+            background-color: rgba(68, 68, 68, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .chart-header {
+            background-color: rgba(85, 85, 85, 0.8);
+            border-bottom: 1px solid rgba(102, 102, 102, 0.5);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .chart {
+            height: 400px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body class="charts-page">
+    <div class="navbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/calculator">Calculator</a></li>
+            <li><a href="/track">Track</a></li>
+            <li><a href="/insights">Insights</a></li>
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+    </div>
+
+    <div class="container mt-5">
+        <div class="chart-container">
+            <div class="chart-header">
+                <h1>Carbon Emission Trends</h1>
+            </div>
+            <div class="chart">
+                <canvas id="emissionChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Fetch the data passed from app.py using Jinja templating
+        const chartLabels = {{ labels | tojson }}; // The dates of calculations
+        const emissionData = {{ emission_data | tojson }}; // The emission data
+
+        // Set up the chart using the dynamic data
+        const ctxEmission = document.getElementById('emissionChart').getContext('2d');
+        const emissionChart = new Chart(ctxEmission, {
+            type: 'line', // Line chart
+            data: {
+                labels: chartLabels, // Dynamic labels for the X-axis (e.g., dates)
+                datasets: [{
+                    label: 'Carbon Emissions',
+                    data: emissionData, // Dynamic data for Y-axis
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
